@@ -1,0 +1,44 @@
+#Python todo app built by Anes Dizdarevic
+import tkinter as tk
+from tkinter import ttk
+
+
+
+#Creates a function of adding a new task
+def add_new_task():
+    #Gets text from entry box
+    text1 = action_add_line.get()
+
+    #Creates a new label with text from entry
+    task_label = ttk.Button(root, text=text1, command=lambda: delete_task(task_label))
+    task_label.pack()
+
+#Function to delete the task
+def delete_task(label):
+    label.destroy()
+
+#Creates a window and defines its size
+root = tk.Tk()
+root.geometry("400x400")
+
+root.title("Python Todo List")
+
+#Creates an instruction label
+instruction_label = ttk.Label(root, text="Please input your task into the box below and press the 'Add' button below to add the task to your list")
+instruction_label.pack(padx=20, pady=20)
+
+#Creates an entry box
+action_add_line = ttk.Entry(root)
+action_add_line.pack(padx=10, pady=10)
+
+#Creates the Add button
+add_button = ttk.Button(root, text="Add", command=add_new_task)
+add_button.pack(padx=5, pady=5)
+
+
+
+
+root.mainloop()
+
+
+
